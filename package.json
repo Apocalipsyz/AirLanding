@@ -1,0 +1,8 @@
+{
+  "name": "air-landing",
+  "version": "0.1.0",
+  "description": "Landing page for Air Solutions",
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  }
+}
