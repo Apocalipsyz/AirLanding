@@ -7,19 +7,29 @@ var gulp = require('gulp'),
     prefix = require('gulp-autoprefixer'),
     minifyCss = require('gulp-minify-css'),
     connect = require('gulp-connect'),
+    uncss = require('gulp-uncss'),
     wiredep = require('wiredep').stream;
 
-gulp.task('build', ['bower'], function () {
+gulp.task('prepare', ['bower'], function () {
     var assets = useref.assets();
 
     return gulp.src('app/*.html')
         .pipe(assets)
         .pipe(gulpif('*.js', uglify()))
         .pipe(gulpif('*.css', prefix('last 2 versions', '> 1%', 'ie 9')))
-        .pipe(minifyCss())
         .pipe(assets.restore())
         .pipe(useref())
         .pipe(gulp.dest('dist'));
+});
+
+gulp.task('build', ['prepare'], function () {
+
+    return gulp.src('dist/css/*.css')
+        .pipe(uncss({
+            html: ['dist/index.html']
+        }))
+        .pipe(minifyCss())
+        .pipe(gulp.dest('dist/css/'));
 });
 
 gulp.task('html', function () {
