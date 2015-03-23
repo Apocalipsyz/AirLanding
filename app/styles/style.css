@@ -1,3 +1,70 @@
 body {
-    background: linear-gradient(30deg, #ccc, #666);
+    background: white;
+    font: 14px "Open Sans", sans-serif;
+}
+.carousel {
+    height: 800px;
+}
+.carousel .item img {
+    height: 800px !important;
+    width: 100% !important;
+}
+.carousel-indicators .active {
+    background-color: rgb( 0, 199, 252 );
+}
+.carousel-control .left-control,
+.carousel-control .right-control {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+}
+.carousel-control .left-control {
+    left: 45px;
+}
+.carousel-control .right-control {
+    right: 45px;
+}
+.navbar {
+    position: absolute;
+    top: 0;
+    height: 95px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.nav-inner {
+    width: 100%;
+    border-bottom: 1px solid #636364;
+}
+.navbar-form {
+    margin-top: 25px;
+}
+.navbar-nav > li {
+    margin-top: 20px;
+}
+.navbar-nav > li:not(:last-child) {
+    padding: 0 10px;
+}
+.navbar-nav > li > a {
+    padding-bottom: 30px;
+    font-size: 13px;
+    color: white;
+}
+
+#navbar-nav > li:hover {
+    border-bottom: 1px solid rgb( 0, 199, 252 );
+}
+
+.navbar-nav > li.active > a,
+.navbar-nav > li > a:hover {
+    background: transparent;
+    border-bottom: 1px solid;
+    color: rgb( 0, 199, 252 );
+    margin-bottom: -1px;
+}
+.navbar-nav > li > a:focus {
+    background: transparent;
+}
+.navbar-brand {
+    padding: 25px 15px;
 }
